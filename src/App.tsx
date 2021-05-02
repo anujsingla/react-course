@@ -1,8 +1,8 @@
 import React from "react";
 import "./App.css";
-import { ToggleButton } from "./ToggleButton";
-import { UserForm } from "./UserForm";
-import { Welcome } from "./Welcome";
+import { ToggleButton } from "./Components/ToggleButton";
+import { UserForm } from "./Components/UserForm";
+import { Welcome } from "./Components/Welcome";
 
 function App() {
   return (
