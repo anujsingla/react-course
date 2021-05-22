@@ -1,7 +1,8 @@
 import { QueryClient, QueryClientProvider } from "react-query";
 import "./App.css";
+import { CustomHooks } from "./Components/CustomHooks";
 // import { ConditionalRender } from "./Components/ConditionalRender";
-import { MultipleItems } from "./Components/MultipleItems";
+// import { MultipleItems } from "./Components/MultipleItems";
 // import {
 //   // LifecycleMethod,
 //   LifecycleMethodWithFunction,
@@ -24,7 +25,8 @@ function App() {
           <div>Life cycle with Function component</div>
           <LifecycleMethodWithFunction initialValue={0} /> */}
           {/* <ConditionalRender /> */}
-          <MultipleItems />
+          {/* <MultipleItems /> */}
+          <CustomHooks />
         </header>
       </div>
     </QueryClientProvider>
