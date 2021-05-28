@@ -1,7 +1,8 @@
 import { QueryClient, QueryClientProvider } from "react-query";
 import "./App.css";
+import { UseContextHook } from "./Components/UseContextHook";
 // import { CustomHooks } from "./Components/CustomHooks";
-import { UseRefExample } from "./Components/UseRefExample";
+// import { UseRefExample } from "./Components/UseRefExample";
 // import { ConditionalRender } from "./Components/ConditionalRender";
 // import { MultipleItems } from "./Components/MultipleItems";
 // import {
@@ -28,7 +29,8 @@ function App() {
           {/* <ConditionalRender /> */}
           {/* <MultipleItems /> */}
           {/* <CustomHooks /> */}
-          <UseRefExample />
+          {/* <UseRefExample /> */}
+          <UseContextHook />
         </header>
       </div>
     </QueryClientProvider>
