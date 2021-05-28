@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from "react-query";
 import "./App.css";
-import { CustomHooks } from "./Components/CustomHooks";
+// import { CustomHooks } from "./Components/CustomHooks";
+import { UseRefExample } from "./Components/UseRefExample";
 // import { ConditionalRender } from "./Components/ConditionalRender";
 // import { MultipleItems } from "./Components/MultipleItems";
 // import {
@@ -26,7 +27,8 @@ function App() {
           <LifecycleMethodWithFunction initialValue={0} /> */}
           {/* <ConditionalRender /> */}
           {/* <MultipleItems /> */}
-          <CustomHooks />
+          {/* <CustomHooks /> */}
+          <UseRefExample />
         </header>
       </div>
     </QueryClientProvider>
