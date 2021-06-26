@@ -1,10 +1,10 @@
 import { QueryClient, QueryClientProvider } from "react-query";
 import "./App.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { UserContextProvider } from "./context/UserContextProvider";
-import { AppRoutes } from './Components/AppRoutes';
-import { NavLinkComponent } from './Components/NavLinkComponent';
 import { HashRouter } from "react-router-dom";
+import { ErrorBoundary } from 'react-error-boundary';
+import { ErrorBoundaryFallbackComponent } from "./Components/ErrorBoundaryFallbackComponent";
+import { ErrorBoundaryHandle } from "./Components/ErrorBoundaryHandle";
 
 const queryClient = new QueryClient();
 
@@ -14,10 +14,10 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <div className="App">
           <header className="App-header">
-            <UserContextProvider>
-              <NavLinkComponent />
-              <AppRoutes />
-            </UserContextProvider>
+            <ErrorBoundary FallbackComponent={ErrorBoundaryFallbackComponent}>
+              <ErrorBoundaryHandle />
+            </ErrorBoundary>
+            <ErrorBoundaryHandle />
           </header>
         </div>
       </QueryClientProvider>
