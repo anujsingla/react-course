@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { HashRouter } from "react-router-dom";
 import { ErrorBoundary } from 'react-error-boundary';
 import { ErrorBoundaryFallbackComponent } from "./Components/ErrorBoundaryFallbackComponent";
-import { ErrorBoundaryHandle } from "./Components/ErrorBoundaryHandle";
+import { MultiForm } from "./Components/Multiform/MultiForm";
 
 const queryClient = new QueryClient();
 
@@ -15,9 +15,8 @@ function App() {
         <div className="App">
           <header className="App-header">
             <ErrorBoundary FallbackComponent={ErrorBoundaryFallbackComponent}>
-              <ErrorBoundaryHandle />
+              <MultiForm />
             </ErrorBoundary>
-            <ErrorBoundaryHandle />
           </header>
         </div>
       </QueryClientProvider>
