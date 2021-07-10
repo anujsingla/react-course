@@ -45,3 +45,23 @@ export function UserList() {
             </tbody>
         </Table></div>
 }
+
+// Redux
+//    - State management library for javascript application
+//    - we can use it with React, angular, vue or other javascript framework or library
+//    - A single centralized place to contain the global state and impose 
+//      certain restrictions on how and when updates can happen.
+
+// Redux three principles
+
+// - Single source of truth
+//     - Application has single store.
+//     - Easier to debug.
+
+// - State is read-only
+//     - We can only change the state with action and reducer.
+//     - State can not be changed by view or any network call.
+
+// - Changes are made with pure functions
+//     - Reducers are pure functions that take the previous state and and
+//     action and return the next state.
