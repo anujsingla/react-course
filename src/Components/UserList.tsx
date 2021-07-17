@@ -1,15 +1,38 @@
 import { map } from "lodash";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button, Alert } from "react-bootstrap";
 import { Table } from "react-bootstrap";
 import { useDispatch } from "react-redux"
 import { useAppSelector } from "../redux/reduxHook";
 import { fetchUser } from "../redux/usersReducer";
+import { UserEditModal } from './UserEditModal';
+
+export const Mode = {
+    NEW: 'New',
+    EDIT: 'Edit'
+}
 
 export function UserList() {
     const dispatch = useDispatch();
     const { data, isError, errorMessage } = useAppSelector((state) => state.users.users)
-    console.log('data', data);
+    const [mode, setMode] = useState(Mode.EDIT);
+    const [showModal, setShowModal] = useState(false);
+    const [userData, setUserData] = useState(null);
+
+    const onClose = () => setShowModal(false);
+
+    const onUpdateModal = (data) => {
+        setMode(Mode.EDIT);
+        setUserData(data);
+        setShowModal(true);
+    }
+
+    const onNewModal = () => {
+        setMode(Mode.NEW);
+        setUserData(null);
+        setShowModal(true);
+    }
+
     useEffect(() => {
         dispatch(fetchUser());
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -22,7 +45,7 @@ export function UserList() {
     }
 
     return <div>
-        <Button className="mb-3" variant="outline-primary">Add User</Button>
+        <Button onClick={onNewModal} className="mb-3" variant="outline-primary">Add User</Button>
         <Table striped bordered hover>
             <thead>
                 <tr>
@@ -33,17 +56,19 @@ export function UserList() {
                 </tr>
             </thead>
             <tbody>
-                {map(data, (d) => (
-                    <tr>
+                {map(data, (d, index) => (
+                    <tr key={index}>
                         <td>{d.id}</td>
                         <td>{d.first_name}</td>
                         <td>{d.last_name}</td>
                         <td>{d.email}</td>
-                        <td><Button variant="outline-primary">Update</Button></td>
+                        <td><Button onClick={() => onUpdateModal(d)} variant="outline-primary">Update</Button></td>
                     </tr>
                 ))}
             </tbody>
-        </Table></div>
+        </Table>
+        <UserEditModal mode={mode} userInfo={userData} show={showModal} onClose={onClose} />
+    </div>
 }
 
 // Redux
